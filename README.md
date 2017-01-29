@@ -1,3 +1,4 @@
 # hello-world
-My "hello-world" repository
-Just initializing this... 
+My "hello-world" repository /n
+Just initializing this... /n
+And trying to understand :P
