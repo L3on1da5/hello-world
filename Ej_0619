@@ -1,0 +1,51 @@
+package codo_a_codo;	import java.util.Scanner;
+
+/*	Array de 2 dimensiones. Una escuela tiene un total de 3 aulas con la
+siguiente capacidad: 
+|	Azul	|	40	|
+|	Verde	|	35	|
+|	Amar.	|	30	|
+Sabiendo la cantidad de bancos de cada aula, el usuario deberá ingresar
+la cantidad de alumnos inscriptos para cursar tercer grado y el sistema
+deberá determinar qué aula (Azul, Verde o Amarillo) es la indicada para la
+cantidad ingresada. La escuela ya sabe que la máxima capacidad de sus
+aulas es de 40 alumnos, por lo tanto, la cantidad de alumnos inscriptos
+que ingresa el usuario siempre será un número menor o igual a 40. Se
+espera que el aula asignada sea la que deje menos bancos libres.
+*/
+public class Ej_0619_asignarAulas {
+	public static void main (String[] args) {
+		String[][] aulas = new String [3][2];
+		aulas[0][0] = "Azul";
+		aulas[0][1] = "40";
+		aulas[1][0] = "Verde";
+		aulas[1][1] = "35";
+		aulas[2][0] = "Amarillo";
+		aulas[2][1] = "30";
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Indique cuántos alumnos hay en el curso:");
+		int cant = entrada.nextInt();
+		 int  sala = indicaSala(aulas, cant);
+		 if (sala >= 30) {
+			 if (sala >= 35){
+				 if (sala <= 40){
+					 System.out.println("Entran en la sala Azul");
+				 } else System.out.println("Entran en la sala Verde");
+			 } else System.out.println("Entran en la sala Amarilla");
+		 }
+		 System.out.println(sala);
+			
+		
+		
+	}
+	public static int indicaSala(String[][] array, int cant){
+		int sala=0;
+		for (int i = 0; i < 3; i++){
+			if((Integer.parseInt(array[i][1])) > cant){
+				sala++;
+			}
+		}
+		return sala;
+	}
+
+}
