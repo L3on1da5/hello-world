@@ -1,18 +1,16 @@
 package codo_a_codo;	import java.util.Scanner;
-
-/*	Array de 2 dimensiones. Una escuela tiene un total de 3 aulas con la
+Array de 2 dimensiones. Una escuela tiene un total de 3 aulas con la
 siguiente capacidad: 
-|	Azul	|	40	|
-|	Verde	|	35	|
-|	Amar.	|	30	|
+					|	Azul	|	40	|
+					|	Verde	|	35	|
+					|	Amar.	|	30	|
 Sabiendo la cantidad de bancos de cada aula, el usuario deberá ingresar
 la cantidad de alumnos inscriptos para cursar tercer grado y el sistema
 deberá determinar qué aula (Azul, Verde o Amarillo) es la indicada para la
 cantidad ingresada. La escuela ya sabe que la máxima capacidad de sus
 aulas es de 40 alumnos, por lo tanto, la cantidad de alumnos inscriptos
 que ingresa el usuario siempre será un número menor o igual a 40. Se
-espera que el aula asignada sea la que deje menos bancos libres.
-*/
+espera que el aula asignada sea la que deje menos bancos libres.		*/
 public class Ej_0619_asignarAulas {
 	public static void main (String[] args) {
 		String[][] aulas = new String [3][2];
@@ -26,26 +24,23 @@ public class Ej_0619_asignarAulas {
 		System.out.println("Indique cuántos alumnos hay en el curso:");
 		int cant = entrada.nextInt();
 		 int  sala = indicaSala(aulas, cant);
-		 if (sala >= 30) {
-			 if (sala >= 35){
-				 if (sala <= 40){
-					 System.out.println("Entran en la sala Azul");
-				 } else System.out.println("Entran en la sala Verde");
-			 } else System.out.println("Entran en la sala Amarilla");
-		 }
-		 System.out.println(sala);
-			
-		
-		
+		 switch (sala) {
+		 case 3: System.out.println("Pueden ir a la sala Amarilla");
+		 break;
+		 case 2: System.out.println("Pueden ir a la sala  Verde");
+		 break;
+		 case 1: System.out.println("Pueden ir a la sala  Azul");
+		 break;
+		 case 0: System.out.println("No hay sala disponible para esa cantidad");
+		 break;
+		 }		
 	}
 	public static int indicaSala(String[][] array, int cant){
 		int sala=0;
 		for (int i = 0; i < 3; i++){
-			if((Integer.parseInt(array[i][1])) > cant){
+			if((Integer.parseInt(array[i][1])) >= cant){
 				sala++;
 			}
-		}
-		return sala;
+		}	return sala;
 	}
-
 }
